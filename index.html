@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Renn STR V4 — Gaming Marketplace</title>
+<meta name="description" content="Renn STR V4 marketplace akun dan top up game">
+<style>
+:root{--bg:#070a10;--panel:#0f151f;--panel2:#141c28;--line:#243044;--text:#f5f7fb;--muted:#91a0b4;--pri:#735cff;--pri2:#927fff;--ok:#20d394;--bad:#ff5571}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0,#39258b22,transparent 30%),var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}
+.container{max-width:1180px;margin:auto;padding:0 18px}.top{height:34px;background:#0b0f17;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px}.top .container{height:100%;display:flex;justify-content:space-between;align-items:center}
+nav{position:sticky;top:0;z-index:30;background:#090d15eF;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.navin{min-height:68px;display:flex;align-items:center;gap:12px;padding-top:9px;padding-bottom:9px}.logo{font-weight:950;font-size:22px;white-space:nowrap}.logo b{color:var(--pri2)}.search{flex:1}.search input{width:100%;background:#121925;border:1px solid var(--line);color:#fff;border-radius:11px;padding:12px 14px;outline:none}.search input:focus{border-color:var(--pri)}
+.btn,.icon{border:0;border-radius:10px;padding:11px 14px;font-weight:800}.btn{background:var(--pri);color:#fff}.btn:hover{background:var(--pri2)}.btn.secondary,.icon{background:#182131;color:#e9edf4}.btn.danger{background:#a52b46}.icon{padding:10px}
+.hero{padding:60px 0 40px;background:radial-gradient(circle at 70% 35%,#755cff30,transparent 35%),radial-gradient(circle at 15% 30%,#149cff16,transparent 28%)}.hero h1{font-size:clamp(36px,6vw,66px);line-height:1;margin:0 0 17px}.hero h1 span{color:var(--pri2)}.hero p{color:var(--muted);max-width:680px;line-height:1.7}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.stats{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}.stats strong{font-size:21px}.stats small{display:block;color:var(--muted)}
+section{padding:30px 0}.head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;gap:10px}.head h2{margin:0}.muted{color:var(--muted)}.chips{display:flex;gap:8px;overflow:auto;padding-bottom:6px}.chip{white-space:nowrap;background:#111925;color:#b9c3d2;border:1px solid var(--line);border-radius:999px;padding:8px 13px}.chip.active,.chip:hover{background:var(--pri);color:#fff;border-color:var(--pri)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.18s}.card:hover{transform:translateY(-3px);border-color:#42516a}.pic{height:170px;background:#151d29 center/cover;position:relative}.badge{position:absolute;left:9px;top:9px;background:#ffb11b;color:#111;padding:5px 8px;border-radius:7px;font-size:10px;font-weight:900}.body{padding:13px}.game{color:#9b8dff;font-size:11px;font-weight:900;text-transform:uppercase}.title{font-weight:800;margin:7px 0;min-height:38px;line-height:1.35}.price{font-size:18px;font-weight:950}.old{font-size:11px;color:#657286;text-decoration:line-through;margin-left:5px}.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:8px 0}.row{display:flex;gap:7px}.row>*{flex:1}.small{border:0;border-radius:8px;padding:9px;background:#192232;color:#fff}.buy{background:var(--pri)}
+.banner{border:1px solid #302b58;background:linear-gradient(110deg,#17122d,#101a29);border-radius:17px;padding:27px;display:flex;justify-content:space-between;align-items:center;gap:15px}.banner h2{margin:0 0 5px}.banner p{margin:0;color:var(--muted)}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:35px 0;color:var(--muted)}.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.foot h3{color:#fff}
+.overlay{display:none;position:fixed;z-index:100;inset:0;background:#000c;align-items:center;justify-content:center;padding:18px}.overlay.show{display:flex}.modal{width:min(760px,100%);max-height:92vh;overflow:auto;background:#0e141e;border:1px solid var(--line);border-radius:17px;padding:20px;box-shadow:0 20px 70px #000b}.mh{display:flex;align-items:center;justify-content:space-between}.close{border:0;background:#1a2331;color:#fff;border-radius:8px;padding:8px 11px}.field{margin:12px 0}.field label{display:block;font-size:13px;color:#aeb9c8;margin-bottom:6px}.field input,.field select{width:100%;padding:11px;border:1px solid var(--line);background:#111925;color:#fff;border-radius:9px;outline:0}.notice{padding:10px 12px;background:#151f2d;border:1px solid var(--line);border-radius:9px;color:#aeb9c8;font-size:13px;line-height:1.5}
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detailimg{min-height:280px;background:center/cover;border-radius:12px}.bigprice{font-size:29px;font-weight:950}.cartitem{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.cartitem img{width:62px;height:52px;object-fit:cover;border-radius:8px}.grow{flex:1}.total{font-size:20px;font-weight:900;margin:17px 0}.adminitem{display:flex;gap:10px;align-items:center;background:#131c28;border:1px solid var(--line);padding:10px;border-radius:10px;margin:8px 0}.adminitem img{width:60px;height:48px;object-fit:cover;border-radius:7px}.adminitem .grow{min-width:0}.adminitem b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.empty{text-align:center;color:var(--muted);padding:45px 10px}
+hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.detail{grid-template-columns:1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.navin{flex-wrap:wrap}.search{order:5;flex-basis:100%}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.pic{height:135px}.banner{display:block}.banner .btn{margin-top:15px}.foot{grid-template-columns:1fr}}
+@media(max-width:410px){.grid{grid-template-columns:1fr}.pic{height:190px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="container"><span>⚡ Renn STR V4</span><span>Marketplace Gaming</span></div></div>
+<nav><div class="container navin">
+<div class="logo">RENN <b>STR</b></div>
+<div class="search"><input id="search" placeholder="Cari akun, top up, game..." oninput="render()"></div>
+<button class="icon" onclick="go('accounts')">Akun</button><button class="icon" onclick="go('topup')">Top Up</button>
+<button class="icon" onclick="openCart()">🛒 <b id="cartCount">0</b></button>
+<button class="btn" onclick="openAdmin()">Admin</button>
+</div></nav>
+
+<header class="hero"><div class="container">
+<h1>Marketplace Gaming<br><span>Renn STR V4</span></h1>
+<p>Akun game dan top up dalam satu marketplace. Checkout melalui WhatsApp dengan dashboard admin untuk mengelola produk.</p>
+<div class="actions"><button class="btn" onclick="go('accounts')">🎮 Belanja Akun</button><button class="btn secondary" onclick="go('topup')">💎 Top Up Game</button></div>
+<div class="stats"><div><strong>100+</strong><small>Produk</small></div><div><strong>24/7</strong><small>Order</small></div><div><strong>Fast</strong><small>Response</small></div></div>
+</div></header>
+
+<main class="container">
+<section><div class="head"><div><h2>Kategori Game</h2><span class="muted">Pilih game</span></div></div><div id="chips" class="chips"></div></section>
+<section id="accounts"><div class="head"><div><h2>🔥 Akun Game</h2><span class="muted">Akun siap diproses</span></div></div><div id="accountGrid" class="grid"></div></section>
+<section id="topup"><div class="head"><div><h2>💎 Top Up Game</h2><span class="muted">Diamond, Robux, VP, UC, dan lainnya</span></div></div><div id="topupGrid" class="grid"></div></section>
+<section><div class="banner"><div><h2>Butuh bantuan?</h2><p>Chat Renn STR untuk konfirmasi order.</p></div><button class="btn" onclick="chat('Halo Renn STR, saya ingin bertanya tentang produk.')">💬 WhatsApp</button></div></section>
+</main>
+<footer><div class="container foot"><div><h3>RENN STR V4</h3><p>Marketplace gaming berbasis GitHub Pages.</p></div><div><h3>Game</h3><p>Mobile Legends<br>Free Fire<br>Roblox<br>PUBG<br>Valorant</p></div><div><h3>Kontak</h3><p>WhatsApp: <span id="waText">Belum diatur</span></p></div></div></footer>
+
+<div class="overlay" id="productModal"><div class="modal"><div class="mh"><h2>Detail Produk</h2><button class="close" onclick="closeM('productModal')">✕</button></div><div id="productDetail"></div></div></div>
+<div class="overlay" id="cartModal"><div class="modal"><div class="mh"><h2>🛒 Keranjang</h2><button class="close" onclick="closeM('cartModal')">✕</button></div><div id="cartBody"></div></div></div>
+
+<div class="overlay" id="loginModal"><div class="modal" style="max-width:430px"><div class="mh"><h2>🔐 Admin V4</h2><button class="close" onclick="closeM('loginModal')">✕</button></div>
+<div class="notice">Login menggunakan username dan password. Sesi akan berakhir otomatis setelah tidak aktif.</div>
+<div class="field"><label>Username</label><input id="loginUser" autocomplete="username"></div>
+<div class="field"><label>Password</label><input id="loginPass" type="password" autocomplete="current-password"></div>
+<button class="btn" onclick="login()">Masuk</button>
+</div></div>
+
+<div class="overlay" id="adminModal"><div class="modal"><div class="mh"><h2>⚙️ Dashboard Admin</h2><button class="close" onclick="closeM('adminModal')">✕</button></div>
+<div class="notice" id="sessionInfo"></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin:13px 0"><button class="btn" onclick="editor()">＋ Produk</button><button class="btn secondary" onclick="openSettings()">⚙ Pengaturan</button><button class="btn danger" onclick="logout()">Keluar</button></div>
+<div id="adminList"></div></div></div>
+
+<div class="overlay" id="editorModal"><div class="modal"><div class="mh"><h2 id="editorTitle">Produk</h2><button class="close" onclick="closeM('editorModal')">✕</button></div>
+<input type="hidden" id="editId">
+<div class="field"><label>Nama produk</label><input id="pName"></div>
+<div class="field"><label>Game</label><select id="pGame"><option>Mobile Legends</option><option>Free Fire</option><option>Roblox</option><option>PUBG Mobile</option><option>Valorant</option><option>Genshin Impact</option><option>Honkai Star Rail</option><option>Other</option></select></div>
+<div class="field"><label>Kategori</label><select id="pType"><option value="account">Akun Game</option><option value="topup">Top Up</option></select></div>
+<div class="field"><label>Harga</label><input id="pPrice" type="number"></div><div class="field"><label>Harga coret</label><input id="pOld" type="number"></div>
+<div class="field"><label>Stok</label><input id="pStock" type="number"></div><div class="field"><label>Rating</label><input id="pRating" type="number" min="1" max="5" step=".1"></div>
+<div class="field"><label>Deskripsi</label><input id="pDesc"></div><div class="field"><label>URL foto</label><input id="pImage"></div>
+<div class="field"><label>Upload foto</label><input id="pFile" type="file" accept="image/*"></div>
+<button class="btn" onclick="saveProduct()">Simpan</button></div></div>
+
+<div class="overlay" id="settingsModal"><div class="modal" style="max-width:520px"><div class="mh"><h2>⚙️ Pengaturan Keamanan</h2><button class="close" onclick="closeM('settingsModal')">✕</button></div>
+<div class="notice">Perubahan kredensial disimpan di browser ini. GitHub Pages tetap tidak menyediakan autentikasi server-side.</div>
+<div class="field"><label>Username admin baru</label><input id="newUser" autocomplete="username"></div>
+<div class="field"><label>Password admin baru</label><input id="newPass" type="password" autocomplete="new-password"></div>
+<div class="field"><label>Konfirmasi password</label><input id="newPass2" type="password" autocomplete="new-password"></div>
+<div class="field"><label>Nomor WhatsApp (628xxx)</label><input id="setWa"></div>
+<button class="btn" onclick="saveSettings()">Simpan Pengaturan</button>
+<hr><button class="btn danger" onclick="resetData()">Reset produk demo</button>
+</div></div>
+
+<script>
+/* Renn STR V4 — static/browser-only security:
+   - Password is salted + hashed with Web Crypto PBKDF2.
+   - No plaintext password is stored.
+   - Session is stored in sessionStorage and expires after inactivity.
+   - This is NOT server-side authentication. Do not use it to protect secret business data.
+*/
+const PK='renn_v4_products', SK='renn_v4_settings', CK='renn_v4_cart', SESSION='renn_v4_session';
+const SESSION_MS=30*60*1000;
+const demo=[
+{id:1,name:'ML Account Mythic Premium',game:'Mobile Legends',type:'account',price:150000,old:200000,stock:3,rating:4.9,desc:'Akun Mobile Legends siap pakai dengan koleksi skin pilihan.',image:'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80'},
+{id:2,name:'FF Account Sultan',game:'Free Fire',type:'account',price:125000,old:175000,stock:2,rating:4.8,desc:'Akun Free Fire dengan item dan skin menarik.',image:'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80'},
+{id:3,name:'Roblox Account',game:'Roblox',type:'account',price:75000,old:100000,stock:5,rating:4.7,desc:'Akun Roblox untuk bermain dan koleksi item.',image:'https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=900&q=80'},
+{id:4,name:'PUBG Mobile Account',game:'PUBG Mobile',type:'account',price:180000,old:225000,stock:2,rating:4.9,desc:'Akun PUBG Mobile siap dimainkan.',image:'https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=80'},
+{id:5,name:'ML 86 Diamonds',game:'Mobile Legends',type:'topup',price:20000,old:25000,stock:99,rating:5,desc:'Top up 86 Diamonds Mobile Legends.',image:'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80'},
+{id:6,name:'FF 70 Diamonds',game:'Free Fire',type:'topup',price:10000,old:12000,stock:99,rating:4.9,desc:'Top up 70 Diamonds Free Fire.',image:'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80'},
+{id:7,name:'Robux 400',game:'Roblox',type:'topup',price:65000,old:75000,stock:99,rating:4.9,desc:'Top up Robux Roblox.',image:'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=900&q=80'},
+{id:8,name:'Valorant Points 475',game:'Valorant',type:'topup',price:55000,old:60000,stock:99,rating:4.8,desc:'Top up Valorant Points.',image:'https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=900&q=80'}
+];
+const fallbackImg='https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80';
+function products(){return JSON.parse(localStorage.getItem(PK)||'null')||demo}
+function saveProducts(x){localStorage.setItem(PK,JSON.stringify(x))}
+function settings(){return JSON.parse(localStorage.getItem(SK)||'null')}
+function setSettings(x){localStorage.setItem(SK,JSON.stringify(x))}
+function rup(n){return 'Rp '+Number(n||0).toLocaleString('id-ID')}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
+function show(id){document.getElementById(id).classList.add('show')}
+function closeM(id){document.getElementById(id).classList.remove('show')}
+window.addEventListener('click',e=>{if(e.target.classList.contains('overlay'))e.target.classList.remove('show')});
+
+/* Crypto helpers */
+function b64(bytes){let s='';bytes.forEach(x=>s+=String.fromCharCode(x));return btoa(s)}
+function bytes(s){let bin=atob(s),a=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)a[i]=bin.charCodeAt(i);return a}
+function randomB64(n=16){let a=new Uint8Array(n);crypto.getRandomValues(a);return b64(a)}
+async function hashPassword(pass,saltB64){
+ const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveBits']);
+ const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:bytes(saltB64),iterations:150000,hash:'SHA-256'},key,256);
+ return b64(new Uint8Array(bits));
+}
+async function ensureSettings(){
+ let s=settings();
+ if(!s){let salt=randomB64(16);s={user:'admin',salt,hash:await hashPassword('admin123',salt),wa:'6281234567890',version:4};setSettings(s)}
+ document.getElementById('waText').textContent=s.wa||'Belum diatur';
+ return s;
+}
+
+/* Session */
+function session(){try{return JSON.parse(sessionStorage.getItem(SESSION)||'null')}catch{return null}}
+function authenticated(){let s=session();return !!(s&&s.ok&&Date.now()-s.last<SESSION_MS)}
+function touch(){let s=session();if(s&&s.ok){s.last=Date.now();sessionStorage.setItem(SESSION,JSON.stringify(s))}}
+function logout(){sessionStorage.removeItem(SESSION);closeM('adminModal');alert('Kamu sudah logout.')}
+setInterval(()=>{if(session()&&!authenticated()){sessionStorage.removeItem(SESSION);closeM('adminModal')}},10000);
+['click','keydown','mousemove','touchstart'].forEach(e=>document.addEventListener(e,()=>{if(authenticated())touch()},{passive:true}));
+
+async function openAdmin(){await ensureSettings();if(authenticated()){renderAdmin();show('adminModal')}else{document.getElementById('loginUser').value='';document.getElementById('loginPass').value='';show('loginModal')}}
+async function login(){
+ let s=await ensureSettings(),u=document.getElementById('loginUser').value.trim(),p=document.getElementById('loginPass').value;
+ if(u!==s.user){alert('Username atau password salah.');return}
+ let h=await hashPassword(p,s.salt);
+ if(h!==s.hash){alert('Username atau password salah.');return}
+ sessionStorage.setItem(SESSION,JSON.stringify({ok:true,last:Date.now()}));
+ document.getElementById('loginPass').value='';closeM('loginModal');renderAdmin();show('adminModal')
+}
+
+/* Store */
+let gameFilter='all';
+function renderChips(){let games=['all',...new Set(products().map(x=>x.game))];document.getElementById('chips').innerHTML=games.map(g=>`<button class="chip ${gameFilter===g?'active':''}" onclick="filterGame('${esc(g)}')">${g==='all'?'Semua Game':esc(g)}</button>`).join('')}
+function filterGame(g){gameFilter=g;renderChips();render()}
+function cardList(a){if(!a.length)return '<div class="empty" style="grid-column:1/-1">Produk tidak ditemukan.</div>';return a.map(x=>`<div class="card"><div class="pic" style="background-image:url('${esc(x.image)}')">${x.old>x.price?'<span class="badge">PROMO</span>':''}</div><div class="body"><div class="game">${esc(x.game)}</div><div class="title">${esc(x.name)}</div><span class="price">${rup(x.price)}</span>${x.old?`<span class="old">${rup(x.old)}</span>`:''}<div class="meta"><span>⭐ ${x.rating}</span><span>Stok ${x.stock}</span></div><div class="row"><button class="small" onclick="detail(${x.id})">Detail</button><button class="small buy" onclick="addCart(${x.id})">🛒 Beli</button></div></div></div>`).join('')}
+function render(){let q=(document.getElementById('search').value||'').toLowerCase(),a=products().filter(x=>(gameFilter==='all'||x.game===gameFilter)&&(x.name+' '+x.game+' '+x.desc).toLowerCase().includes(q));document.getElementById('accountGrid').innerHTML=cardList(a.filter(x=>x.type==='account'));document.getElementById('topupGrid').innerHTML=cardList(a.filter(x=>x.type==='topup'))}
+function detail(id){let x=products().find(p=>p.id===id);if(!x)return;document.getElementById('productDetail').innerHTML=`<div class="detail"><div class="detailimg" style="background-image:url('${esc(x.image)}')"></div><div><div class="game">${esc(x.game)} • ${x.type==='account'?'AKUN':'TOP UP'}</div><h2>${esc(x.name)}</h2><div class="bigprice">${rup(x.price)}</div><p class="muted">${esc(x.desc)}</p><p>⭐ ${x.rating} • Stok ${x.stock}</p><button class="btn" onclick="addCart(${x.id});closeM('productModal')">🛒 Tambah</button><button class="btn secondary" style="margin-left:6px" onclick="checkout([{id:${x.id},qty:1}])">Beli Sekarang</button></div></div>`;show('productModal')}
+function cart(){return JSON.parse(localStorage.getItem(CK)||'[]')}
+function saveCart(x){localStorage.setItem(CK,JSON.stringify(x));updateCart()}
+function updateCart(){document.getElementById('cartCount').textContent=cart().reduce((a,b)=>a+b.qty,0)}
+function addCart(id){let c=cart(),f=c.find(x=>x.id===id);if(f)f.qty++;else c.push({id,qty:1});saveCart(c);alert('Produk masuk keranjang.')}
+function openCart(){let c=cart(),ps=products(),total=0;if(!c.length)document.getElementById('cartBody').innerHTML='<div class="empty">Keranjang masih kosong.</div>';else{let h='';c.forEach(i=>{let p=ps.find(x=>x.id===i.id);if(!p)return;total+=p.price*i.qty;h+=`<div class="cartitem"><img src="${esc(p.image)}"><div class="grow"><b>${esc(p.name)}</b><div class="muted">${rup(p.price)} × ${i.qty}</div></div><button class="small" onclick="removeCart(${p.id})">✕</button></div>`});document.getElementById('cartBody').innerHTML=h+`<div class="total">Total: ${rup(total)}</div><button class="btn" onclick="checkout(cart())">Checkout WhatsApp</button>`}show('cartModal')}
+function removeCart(id){saveCart(cart().filter(x=>x.id!==id));openCart()}
+function checkout(c){let s=settings(),ps=products(),total=0,lines=['Halo Renn STR, saya ingin order:',''];c.forEach(i=>{let p=ps.find(x=>x.id===i.id);if(p){total+=p.price*i.qty;lines.push(`- ${p.name} x${i.qty} = ${rup(p.price*i.qty)}`)}});lines.push('',`Total: ${rup(total)}`,'Mohon info pembayaran dan proses selanjutnya.');if(!s?.wa){alert('Nomor WhatsApp belum diatur.');return}window.open('https://wa.me/'+s.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank')}
+function chat(t){let s=settings();if(s?.wa)window.open('https://wa.me/'+s.wa+'?text='+encodeURIComponent(t),'_blank')}
+
+/* Admin */
+function renderAdmin(){if(!authenticated()){openAdmin();return}touch();document.getElementById('sessionInfo').textContent='Sesi aktif selama 30 menit sejak aktivitas terakhir.';let ps=products();document.getElementById('adminList').innerHTML=`<p class="muted">${ps.length} produk tersimpan di browser ini.</p>`+ps.map(x=>`<div class="adminitem"><img src="${esc(x.image)}"><div class="grow"><b>${esc(x.name)}</b><small class="muted">${esc(x.game)} • ${rup(x.price)} • stok ${x.stock}</small></div><button class="small" onclick="editor(${x.id})">Edit</button><button class="small" onclick="delProduct(${x.id})">Hapus</button></div>`).join('')}
+function editor(id=null){if(!authenticated())return openAdmin();let x=id?products().find(p=>p.id===id):null;show('editorModal');document.getElementById('editorTitle').textContent=x?'Edit Produk':'Produk Baru';document.getElementById('editId').value=x?.id||'';document.getElementById('pName').value=x?.name||'';document.getElementById('pGame').value=x?.game||'Mobile Legends';document.getElementById('pType').value=x?.type||'account';document.getElementById('pPrice').value=x?.price||'';document.getElementById('pOld').value=x?.old||'';document.getElementById('pStock').value=x?.stock??1;document.getElementById('pRating').value=x?.rating||5;document.getElementById('pDesc').value=x?.desc||'';document.getElementById('pImage').value=x?.image||'';document.getElementById('pFile').value=''}
+document.getElementById('pFile').addEventListener('change',e=>{let f=e.target.files[0];if(f){let r=new FileReader();r.onload=()=>document.getElementById('pImage').value=r.result;r.readAsDataURL(f)}})
+function saveProduct(){if(!authenticated())return openAdmin();let id=document.getElementById('editId').value,ps=products(),p={id:id?Number(id):Date.now(),name:document.getElementById('pName').value.trim(),game:document.getElementById('pGame').value,type:document.getElementById('pType').value,price:Number(document.getElementById('pPrice').value),old:Number(document.getElementById('pOld').value)||0,stock:Number(document.getElementById('pStock').value),rating:Number(document.getElementById('pRating').value)||5,desc:document.getElementById('pDesc').value.trim(),image:document.getElementById('pImage').value.trim()||fallbackImg};if(!p.name||!p.price)return alert('Nama dan harga wajib diisi.');if(id)ps[ps.findIndex(x=>x.id===Number(id))]=p;else ps.unshift(p);saveProducts(ps);closeM('editorModal');renderAdmin();renderChips();render();alert('Produk tersimpan.')}
+function delProduct(id){if(!authenticated())return; if(confirm('Hapus produk ini?')){saveProducts(products().filter(x=>x.id!==id));renderAdmin();renderChips();render()}}
+async function openSettings(){if(!authenticated())return openAdmin();let s=await ensureSettings();document.getElementById('newUser').value=s.user;document.getElementById('newPass').value='';document.getElementById('newPass2').value='';document.getElementById('setWa').value=s.wa||'';show('settingsModal')}
+async function saveSettings(){if(!authenticated())return openAdmin();let s=await ensureSettings(),u=document.getElementById('newUser').value.trim(),p=document.getElementById('newPass').value,p2=document.getElementById('newPass2').value,w=document.getElementById('setWa').value.replace(/\D/g,'');if(!u)return alert('Username wajib diisi.');if(p&&p.length<8)return alert('Password minimal 8 karakter.');if(p!==p2)return alert('Konfirmasi password tidak sama.');s.user=u;s.wa=w;if(p){s.salt=randomB64(16);s.hash=await hashPassword(p,s.salt)}setSettings(s);document.getElementById('waText').textContent=s.wa||'Belum diatur';closeM('settingsModal');alert('Pengaturan disimpan. Jika username/password berubah, login berikutnya memakai data baru.')}
+function resetData(){if(!authenticated())return;if(confirm('Reset produk demo? Pengaturan login dan WhatsApp tidak akan dihapus.')){localStorage.removeItem(PK);renderAdmin();renderChips();render()}}
+async function init(){await ensureSettings();renderChips();render();updateCart()}
+init();
+</script>
+</body>
+</html>
